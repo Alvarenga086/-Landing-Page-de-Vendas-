@@ -8,7 +8,7 @@
     "build": "sanity build",
     "deploy": "sanity deploy"
   },
-  "devDependencies": {
+  "dependencies": {
     "@sanity/base": "^2.36.2",
     "@sanity/cli": "^6.6.0",
     "@sanity/default-layout": "^2.36.2",
