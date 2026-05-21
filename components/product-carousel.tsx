@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 
 import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -6,45 +6,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import { useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-const products = [
-  {
-    id: 1,
-    name: 'Bag Anoitecer',
-    description: 'Elegância noturna em cada detalhe. Bolsa confeccionada com miçangas em tons de azul marinho e dourado.',
-    image: '/images/bag-anoitecer.jpg',
-    category: 'Bolsa de Miçangas',
-  },
-  {
-    id: 2,
-    name: 'Bag Aliança',
-    description: 'Perfeita para ocasiões especiais. Design clássico com miçangas brancas e detalhes dourados.',
-    image: '/images/bag-alianca.jpg',
-    category: 'Bolsa de Miçangas',
-  },
-  {
-    id: 3,
-    name: 'Bag Cristal',
-    description: 'Brilho e sofisticação. Miçangas cristalinas que capturam a luz de forma única.',
-    image: '/images/bag-cristal.jpg',
-    category: 'Bolsa de Miçangas',
-  },
-  {
-    id: 4,
-    name: 'Bag Noemi',
-    description: 'Delicadeza e romantismo. Tons rosados e detalhes florais em miçangas.',
-    image: '/images/bag-noemi.jpg',
-    category: 'Bolsa de Miçangas',
-  },
-  {
-    id: 5,
-    name: 'Bag Madu',
-    description: 'Calor e aconchego. Miçangas em tons de mel e caramelo para um visual boho-chic.',
-    image: '/images/bag-madu.jpg',
-    category: 'Bolsa de Miçangas',
-  },
-]
-
-export function ProductCarousel() {
+export function ProductCarousel({ products }: { products?: any[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: 'start' },
     [Autoplay({ delay: 4000, stopOnInteraction: true })]
@@ -83,7 +45,7 @@ export function ProductCarousel() {
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-6">
-              {products.map((product) => (
+              {(products || []).map((product) => (
                 <div 
                   key={product.id} 
                   className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
@@ -91,7 +53,7 @@ export function ProductCarousel() {
                   <div className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group">
                     <div className="relative aspect-square overflow-hidden">
                       <Image
-                        src={product.image}
+                        src={product.image || product.imageUrl || '/images/bag-anoitecer.jpg'}
                         alt={product.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"

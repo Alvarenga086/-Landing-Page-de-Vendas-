@@ -1,0 +1,10 @@
+{
+  "name": "sanity-studio",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  }
+}
