@@ -14,13 +14,15 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "D'luz & Miçangas | Bolsas Artesanais e Peças em Crochê",
-  description: 'Bolsas artesanais confeccionadas em miçangas e peças em crochê. Feitas à mão com amor e dedicação. Entrega em Teresina e envio para todo o Brasil.',
-  keywords: ['bolsas artesanais', 'miçangas', 'crochê', 'bolsas de miçangas', 'artesanato', 'Teresina'],
-  openGraph: {
-    title: "D'luz & Miçangas | Bolsas Artesanais",
-    description: 'Bolsas artesanais confeccionadas em miçangas e peças em crochê. Feitas à mão com amor.',
-    type: 'website',
+  title: 'JURISLAB | Liga Acadêmica de Direito - UNIP Teresina',
+  description: 'Liga Acadêmica de Direito da Faculdade UNIP Teresina-PI. Promovendo conhecimento, pesquisa e extensão jurídica.',
+  keywords: ['direito', 'liga acadêmica', 'UNIP', 'Teresina', 'jurídico', 'OAB', 'estudos jurídicos'],
+  icons: {
+    icon: [
+      {
+        url: '/images/jurislab-logo.jpeg',
+      },
+    ],
   },
 }
 
@@ -30,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="bg-background">
+    <html lang="pt-BR" className="bg-background scroll-smooth">
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
